@@ -1,6 +1,14 @@
 body {
   margin: 0;
 }
+a{
+  text-decoration: none;
+  color: inherit;
+}
+a:hover{
+  text-decoration: none;
+  color: inherit;
+}
 
 .main.container {
   margin-top: 30px;
@@ -29,6 +37,10 @@ body {
   color: white;
   text-align: center;
 }
+.ec_logo:hover{
+  background-color: white;
+}
+
 .login_btn{
   width: 10%;
   float: right;
