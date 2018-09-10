@@ -14,56 +14,13 @@
     <!-- load common files -->
     <link rel="stylesheet" href="./common/style.css">
   </head>
+  <body>
     <div id="app">
       <common-menu></common-menu>
-    <div class="ui main container">
-      <div class="ui two column stackable grid">
-        <div class="column"><div class="ui image"><img src="https://semantic-ui.com/images/avatar/large/helen.jpg"></div></div>
 
-        <div class="column">
-
-          <div class="upper_row">
-          <h2>Title</h2>
-          <h3>price</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, ad sapiente sunt. Numquam, rerum officia error non molestiae temporibus? Excepturi sit sed dolorem doloribus repudiandae in eveniet sequi deleniti aut!</p>
-
-        </div>
-
-        <div class="middle_row1">
-          <select class="ui selection dropdown" name="Size">
-            <option value="1">S</option>
-            <option value="2" selected>M</option>
-            <option value="3">L</option>
-          </select>
-        </div>
-
-        <div class="middle_row2">
-          <select class="ui selection dropdown" name="Color">
-            <option value="1">Black</option>
-            <option value="2" selected>White</option>
-            <option value="3">Red</option>
-          </select>
-        </div>
-
-        <div class="middle_row3">
-          <div class="ui input">
-            <input type="number" placeholder="数量" min="1" value="1">
-          </div>
-        </div>
-
-        <div class="lower_row">
-          <button class="ui primary button">
-            買い物カゴへ
-          </button>
-          <button class="ui button">
-            購入手続きへ
-          </button>
-        </div>
-
-
-        </div>
+      <div class="top-image">
+        <a class="enter_btn" v-on:click="show_details" v-bind:href="link_to">{{H_text}}</a>
       </div>
-    </div>
       <!-- <div class="ui main container">
         <div class="ui segment">
           <form class="ui form" v-on:submit.prevent="post">

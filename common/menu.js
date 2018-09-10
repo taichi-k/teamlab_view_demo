@@ -31,15 +31,14 @@ Vue.component("common-menu", {
     <div class="my_header">
     <div class="upper-header">
     <a href="index.html" class="ec_logo"><div>LOGO</div></a>
-      <div class="cart_btn mybtn">cart</div>
-    <div class="login_btn mybtn">Login</div>
+    <a href="cart.html" class="cart_btn mybtn"><div>cart</div></a>
 
     </div>
 
     <div class="bottom-header">
     <a href="list.html" class="header-item"><div>Men</div></a>
     <a href="list.html" class="header-item"><div>Women</div></a>
-    <a href="list.html" class="header-item"><div>Category</div></a>
+    <a href="category.html" class="header-item"><div>Category</div></a>
     <a href="list.html" class="header-item"><div>Recommended</div></a>
     <a href="search.html" class="header-item"><div>Search</div></a>
     </div>
