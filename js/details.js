@@ -60,9 +60,13 @@ var vm = new Vue({
     set_product: function(){
       if(localStorage.getItem("buy_list")){
       this.buy_list = JSON.parse(localStorage.getItem("buy_list"));
-      this.buy_list.push({id:1,size:"L",amount:2})
+      for (var i = 0;i < this.selected_amount;i++){
+      this.buy_list.push({id:this.query_params["id"],size:this.selected_size})
+    }
     }else{
-      this.buy_list.push({id:2,size:"M",amount:1})
+      for (var i = 0;i < this.selected_amount;i++){
+      this.buy_list.push({id:this.query_params["id"],size:this.selected_size})
+    }
     }
       localStorage.setItem("buy_list", JSON.stringify(this.buy_list))
       console.log("added")
