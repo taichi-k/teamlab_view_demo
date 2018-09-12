@@ -30,32 +30,30 @@
         </div>
 
         <div class="middle_row1">
-          <select class="ui selection dropdown" name="Size">
-            <option value="1">S</option>
-            <option value="2" selected>M</option>
-            <option value="3">L</option>
+          <select class="ui selection dropdown" v-model="selected_size">
+            <option v-for="size in sizes" v-bind:value="size">{{size}}</option>
           </select>
         </div>
 
         <div class="middle_row2">
-          <select class="ui selection dropdown" name="Color">
-            <option value="1">Black</option>
-            <option value="2" selected>White</option>
-            <option value="3">Red</option>
+          <select class="ui selection dropdown">
+            <option value="Black">Black</option>
+            <option value="White" selected>White</option>
+            <option value="Red">Red</option>
           </select>
         </div>
 
         <div class="middle_row3">
           <div class="ui input">
-            <input type="number" placeholder="数量" min="1" value="1">
+            <input type="number" placeholder="数量" min="1" value="1" v-model="selected_amount">
           </div>
         </div>
 
         <div class="lower_row">
-          <button class="ui primary button">
+          <button class="ui primary button" v-on:click="set_product">
             買い物カゴへ
           </button>
-          <button class="ui button">
+          <button class="ui button" v-on:click="clear_product">
             購入手続きへ
           </button>
         </div>
@@ -127,6 +125,6 @@
 
     <script src="./common/config.js" charset="utf-8"></script>
     <script src="./common/menu.js" charset="utf-8"></script>
-    <script src="./js/index.js" charset="utf-8"></script>
+    <script src="./js/details.js" charset="utf-8"></script>
   </body>
 </html>

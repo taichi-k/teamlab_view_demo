@@ -32,7 +32,7 @@
           <div class="field">
          <div class="ui left icon input">
            <i class="user icon"></i>
-           <input type="text" name="email" placeholder="商品名">
+           <input type="text" placeholder="商品名"　v-model="query_title">
          </div>
        </div>
        </div>
@@ -42,7 +42,7 @@
         <div class="field">
           <div class="ui left icon input">
             <i class="briefcase icon"></i>
-            <input type="password" name="password" placeholder="カテゴリ">
+            <input type="text" v-model="query_category" placeholder="カテゴリ">
           </div>
         </div>
       </div>
@@ -52,7 +52,12 @@
         <div class="field">
           <div class="ui left icon input">
             <i class="user icon"></i>
-            <input type="password" name="password" placeholder="性別">
+            <!-- <input type="password" v-model="query_gender" placeholder="性別"> -->
+            <select class="ui selection dropdown" v-model="query_gender">
+              <option value="" selected>指定なし</option>
+              <option value="m">男</option>
+              <option value="f">女</option>
+            </select>
           </div>
         </div>
       </div>
@@ -62,28 +67,28 @@
         <div class="field">
           <div class="ui left icon input">
             <i class="yen sign icon"></i>
-            <input type="password" name="password" placeholder="以上">
+            <input type="number" v-model="query_start" placeholder="以上">
           </div>
         </div>
         <div class="field">
           <div class="ui left icon input">
             <i class="yen sign icon"></i>
-            <input type="password" name="password" placeholder="以下">
+            <input type="number" v-model="query_end" placeholder="以下">
           </div>
         </div>
       </div>
 
           <!-- <div class="ui error message"></div> -->
-
-       <div class="ui fluid large teal submit button">Search</div>
+       <div class="ui fluid large teal submit button" type="submit" v-on:click="query_search">Search</div>
      </div>
 
    </form>
-      <div class="ui three stackable cards">
+
+      <div class="ui three link stackable cards">
         <div class="card" v-for="item in items">
-        <div class="image">
-          <img v-bind:src=item>
-        </div>
+          <a v-bind:href="item.url" class="image">
+            <img v-bind:src=item.image_url>
+          </a>
         </div>
       </div>
 
@@ -117,8 +122,9 @@
             <img src="https://semantic-ui.com/images/avatar/large/steve.jpg">
           </div>
         </div> -->
-    </div>
-</div>
+    </div><!--maincontainer-->
+</div><!-- app_end -->
+
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.2.1/vue.js"></script> -->
     <script src="./common/config.js" charset="utf-8"></script>
     <script src="./common/menu.js" charset="utf-8"></script>

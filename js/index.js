@@ -17,6 +17,8 @@ var vm = new Vue({
     show_details: function(event){
       console.log(event.srcElement.innerText)
       link_to = event.srcElement.innerText + ".html"
+      console.log(link_to)
+      console.log(location.href)
     }
   }
 });

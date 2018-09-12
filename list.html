@@ -24,17 +24,21 @@
 
       <div class="ui three link stackable cards">
 
-        <!-- <div class="card" v-for="item in items">
-        <div class="image">
-          <img v-bind:src=item>
+
+        <div class="card" v-for="item in items">
+          <a v-bind:href="item.url" class="image">
+            <img v-bind:src=item.image_url>
+          </a>
         </div>
-        </div>
-      </div> -->
-        <div class="card">
+
+      </div>
+
+        <!-- <div class="card">
           <a href="details.html" class="image">
             <img src="https://semantic-ui.com/images/avatar/large/elliot.jpg">
           </a>
         </div>
+
         <div class="card">
           <a href="details.html" class="image">
             <img src="https://semantic-ui.com/images/avatar/large/helen.jpg">
@@ -59,7 +63,7 @@
           <a href="details.html" class="image">
             <img src="https://semantic-ui.com/images/avatar/large/steve.jpg">
           </a>
-        </div>
+        </div> -->
     </div>
 </div>
 

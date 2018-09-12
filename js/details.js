@@ -5,10 +5,15 @@ console.log("read");
 var vm = new Vue({
   el: "#app",
   data: {
-    query_params:{},
     tmp:[],
     tmp_key:null,
     tmp_value:null,
+    query_params:{},
+    selected_size:null,
+    selected_color:null,
+    selected_amount:1,
+    sizes:[],
+    buy_list:[],
     items:[
         {
           id:1,
@@ -29,14 +34,14 @@ var vm = new Vue({
   },
   created: function() {
     //fetchでリストを呼ぶ。その時にURLも作成することで、解決可能？
-    for (var i=0;i<this.items.length;i++){
-      this.items[i]["url"] = "details.html?id="+this.items[i].id;
-      // console.log("list.html?"+this.genres_for_m[i].name)
-
     if (window.location.search){
       this.get_querystring(window.location.search.split("?")[1]);
     }
-    }
+    //fetchで、商品idから情報を取ってくる
+
+    this.sizes = this.items[0].size.split(" ");
+    this.selected_size = this.sizes[0]
+
   },
   methods: {
       // 投稿の取得リクエストの送信
@@ -45,11 +50,27 @@ var vm = new Vue({
         for (var i = 0;i < this.tmp.length;i++){
           this.tmp_key = this.tmp[i].split("=")[0];
           this.tmp_value = this.tmp[i].split("=")[1];
+          console.log(this.tmp_key, this.tmp_value)
           this.query_params[this.tmp_key] = this.tmp_value;
         }
         console.log(this.query_params)
         console.log("Done")
-      }
+      },
+
+    set_product: function(){
+      if(localStorage.getItem("buy_list")){
+      this.buy_list = JSON.parse(localStorage.getItem("buy_list"));
+      this.buy_list.push({id:1,size:"L",amount:2})
+    }else{
+      this.buy_list.push({id:2,size:"M",amount:1})
+    }
+      localStorage.setItem("buy_list", JSON.stringify(this.buy_list))
+      console.log("added")
+    },
+
+    clear_product: function(){
+      localStorage.clear()
+    }
   }
 });
 

@@ -21,6 +21,7 @@
   <div class="ui main container">
 
       <h1 class="ui centered header my_margin">商品カゴ</h1>
+      <p v-if="!if_buy_list">カゴは空っぽです。</p>
 
         <!-- <div class="card" v-for="item in items">
         <div class="image">
@@ -31,14 +32,37 @@
 
       <div class="ui divided items">
 
-        <div class="item">
+        <div class="item" v-for="item in items">
+          <div class="image">
+            <img :src="item.image_url">
+          </div>
+          <div class="content">
+            <a class="header">{{item.name}}</a>
+            <div class="meta">
+              <span class="cinema">{{item.price}}円</span>
+            </div>
+            <div class="description">
+              <p>{{item.description}}</p>
+            </div>
+            <div class="extra">
+              <div class="ui right floated red button">
+                カゴから削除
+                <i class="right chevron icon"></i>
+              </div>
+              <div class="ui label">COLOR</div>
+              <div class="ui label">SIZE</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="item">
           <div class="image">
             <img src="https://semantic-ui.com/images/avatar/large/elliot.jpg">
           </div>
           <div class="content">
             <a class="header">TITLE</a>
             <div class="meta">
-              <span class="cinema">category</span>
+              <span class="cinema">price</span>
             </div>
             <div class="description">
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus itaque praesentium, nisi perferendis, voluptas, minima sint ut unde ad sit fugit repudiandae doloremque ducimus odio eaque hic modi repellendus fuga.</p>
@@ -52,7 +76,7 @@
               <div class="ui label">SIZE</div>
             </div>
           </div>
-        </div>
+        </div> -->
 
       </div>
 
@@ -61,7 +85,7 @@
     </div>
 
   <div style="width:100%;text-align:center;">
-    <button class="ui secondary button my_center">
+    <button class="ui secondary button my_center" disabled="!if_buy_list">
       購入へ
     </button>
   </div>
@@ -70,6 +94,6 @@
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.2.1/vue.js"></script> -->
     <script src="./common/config.js" charset="utf-8"></script>
     <script src="./common/menu.js" charset="utf-8"></script>
-    <script src="./js/list.js" charset="utf-8"></script>
+    <script src="./js/cart.js" charset="utf-8"></script>
   </body>
 </html>

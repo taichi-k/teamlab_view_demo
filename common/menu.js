@@ -36,10 +36,10 @@ Vue.component("common-menu", {
     </div>
 
     <div class="bottom-header">
-    <a href="list.html" class="header-item"><div>Men</div></a>
-    <a href="list.html" class="header-item"><div>Women</div></a>
+    <a href="list.html?gender=m" class="header-item"><div>Men</div></a>
+    <a href="list.html?gender=f" class="header-item"><div>Women</div></a>
     <a href="category.html" class="header-item"><div>Category</div></a>
-    <a href="list.html" class="header-item"><div>Recommended</div></a>
+    <a href="list.html?category=recommended" class="header-item"><div>Recommended</div></a>
     <a href="search.html" class="header-item"><div>Search</div></a>
     </div>
     </div>

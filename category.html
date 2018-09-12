@@ -25,16 +25,22 @@
 <div class="ui two column stackable grid">
   <div class="column" style="text-align:center;">
     <h2>Men</h2>
-    <p><a href="list.html">Cap</a></p>
+    <p v-for="gm in genres_for_m">
+      <a :href="gm.url">{{gm.name}}</a>
+    </p>
+    <!-- <p><a href="list.html">Cap</a></p>
     <p><a href="list.html">T-Shirts</a></p>
-    <p><a href="list.html">Shoes</a></p>
+    <p><a href="list.html">Shoes</a></p> -->
   </div>
 
   <div class="column" style="text-align:center;">
     <h2>Women</h2>
-    <p><a href="list.html">Cap</a></p>
+    <p v-for="gf in genres_for_f">
+      <a v-bind:href="gf.url">{{gf.name}}</a>
+    </p>
+    <!-- <p><a href="list.html">Cap</a></p>
     <p><a href="list.html">T-Shirts</a></p>
-    <p><a href="list.html">Shoes</a></p>
+    <p><a href="list.html">Shoes</a></p> -->
   </div>
 </div>
 
@@ -47,6 +53,6 @@
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.2.1/vue.js"></script> -->
     <script src="./common/config.js" charset="utf-8"></script>
     <script src="./common/menu.js" charset="utf-8"></script>
-    <script src="./js/list.js" charset="utf-8"></script>
+    <script src="./js/category.js" charset="utf-8"></script>
   </body>
 </html>
