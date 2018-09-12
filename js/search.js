@@ -11,16 +11,16 @@ var vm = new Vue({
     query_start:null,
     query_end:null,
     items:[
-      {
-        id:1,
-      image_url:"https://semantic-ui.com/images/avatar/large/helen.jpg",
-      name:"aaa"
-    },
-    {
-      id:2,
-    image_url:"https://semantic-ui.com/images/avatar/large/helen.jpg",
-    name:"nnn"
-    }
+    //   {
+    //     id:1,
+    //   image_url:"https://semantic-ui.com/images/avatar/large/helen.jpg",
+    //   name:"aaa"
+    // },
+    // {
+    //   id:2,
+    // image_url:"https://semantic-ui.com/images/avatar/large/helen.jpg",
+    // name:"nnn"
+    // }
     ]
   },
   computed: {
@@ -36,6 +36,35 @@ var vm = new Vue({
       // 投稿の取得リクエストの送信
       query_search: function(){
         //ここで検索のfetchを行う
+        fetch("http://18.223.55.169:3000/search?", {
+            method: 'GET',
+            headers: new Headers({
+                'Access-Control-Allow-Origin': '*'
+            }),
+
+          })
+          // .then((res)=>{res.json()})
+          // .then((json)=>{console.log(json)})
+          .then(function(response) {
+            console.log(response)
+            if (response.ok) {
+              console.log("ok")
+              return response.json();
+            }
+            return response.json().then(function(json) {
+              throw new Error(json.message);
+            });
+          })
+          .then(function(json) {
+            vm.items = json;
+            vm.aaaa()
+            console.log("done!");
+          })
+          .catch(function(err) {
+            console.log(err)
+            window.console.error(err.message);
+          });
+
         console.log("pressed")
       },
       check_: function(){

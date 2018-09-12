@@ -21,7 +21,7 @@
   <div class="ui main container">
 
       <h1 class="ui centered header my_margin">商品カゴ</h1>
-      <p v-if="!if_buy_list">カゴは空っぽです。</p>
+      <h2 v-if="!if_buy_list">カゴは空っぽです。</h2>
 
         <!-- <div class="card" v-for="item in items">
         <div class="image">
@@ -49,8 +49,8 @@
                 カゴから削除
                 <i class="right chevron icon"></i>
               </div>
-              <div class="ui label">COLOR</div>
-              <div class="ui label">SIZE</div>
+              <div class="ui label">White</div>
+              <div class="ui label">{{item.size}}</div>
             </div>
           </div>
         </div>
@@ -84,8 +84,10 @@
 
     </div>
 
-  <div style="width:100%;text-align:center;">
-    <button class="ui secondary button my_center" disabled="!if_buy_list">
+    <div class="my_margin" style="width:100%;text-align:center;"><h3>合計金額:{{price_sum}} 円</h3></div>
+
+  <div style="width:100%;text-align:center;" class="my_margin">
+    <button class="ui secondary button my_center" v-if="if_buy_list">
       購入へ
     </button>
   </div>

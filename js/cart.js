@@ -8,7 +8,11 @@ var vm = new Vue({
     returned_list:[],
     price_tags:[],
     price_list:[],
+    price_sum:0,
     size_list:[],
+    name_list:[],
+    image_url_list:[],
+    description_list:[],
     buy_list:[],
     if_buy_list:false,
     tmp_item:{},
@@ -38,50 +42,32 @@ var vm = new Vue({
     this.buy_list = JSON.parse(localStorage.getItem("buy_list"))
 
     for (var i = 0;i<this.buy_list.length;i++){
+      this.items.push({});
 
       console.log(i)
       this.size_list.push(this.buy_list[i].size)
+      this.price_list.push(this.buy_list[i].price)
+      this.name_list.push(this.buy_list[i].name)
+      this.description_list.push(this.buy_list[i].description)
+      this.image_url_list.push(this.buy_list[i].image_url)
+    }
       //fetchでidを投げ、要素を取得
-      this.tmp_item = fetch("http://18.223.55.169:3000/products/" + this.buy_list[i].id, {
-          method: 'GET',
-          headers: new Headers({
-              'Access-Control-Allow-Origin': '*'
-          })
-        })
-        // .then((res)=>{res.json()})
-        // .then((json)=>{console.log(json)})
-        .then(function(response) {
-          console.log(response)
-          if (response.ok) {
-            console.log("ok")
-            return response.json();
-          }
-          return response.json().then(function(json) {
-            throw new Error(json.message);
-          });
-        })
-        .then(function(json) {
-          // this.tmp_item = json;
-          return json;
-          console.log("set tmp_item!");
-        })
-        .catch(function(err) {
-          console.log(err)
-          window.console.error(err.message);
-        });
 
-        console.log("pushed")
-        this.items.push(this.tmp_item)
+    for (var i=0;i<this.buy_list.length;i++){
+      this.items[i]["size"] = this.size_list[i];
+      this.items[i]["name"] = this.name_list[i];
+      this.items[i]["description"] = this.description_list[i];
+      this.items[i]["price"] = this.price_list[i];
+      this.items[i]["image_url"] = this.image_url_list[i];
 
-    }//forend
-    console.log("for_e")
-  }
-
-    for (var i=0;i<this.items.length;i++){
-      this.items[i]["url"] = "details.html?id="+this.items[i].id;
       // console.log("list.html?"+this.genres_for_m[i].name)
     }
 
+    for (var i = 0;i < this.price_list.length;i++){
+      this.price_sum　+= this.price_list[i];
+    }
+
+}
 
   },
   methods: {
