@@ -45,10 +45,10 @@
               <p>{{item.description}}</p>
             </div>
             <div class="extra">
-              <div class="ui right floated red button">
+              <a class="ui right floated red button" :href="item.delete_url">
                 カゴから削除
                 <i class="right chevron icon"></i>
-              </div>
+              </a>
               <div class="ui label">White</div>
               <div class="ui label">{{item.size}}</div>
             </div>
@@ -91,6 +91,7 @@
       購入へ
     </button>
   </div>
+
 
 </div>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.2.1/vue.js"></script> -->

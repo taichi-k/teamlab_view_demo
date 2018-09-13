@@ -5,6 +5,8 @@ console.log("read");
 var vm = new Vue({
   el: "#app",
   data: {
+    query_string:[],
+    query_list:[],
     query_title:null,
     query_category:null,
     query_gender:null,
@@ -35,8 +37,27 @@ var vm = new Vue({
   methods: {
       // 投稿の取得リクエストの送信
       query_search: function(){
+
+        if (this.query_title){
+          this.query_list.push("name="+this.query_title)
+        }
+        if (this.query_gender){
+          this.query_list.push("gender="+this.query_gender)
+        }
+        if (this.query_category){
+          this.query_list.push("category_id="+this.query_category)
+        }
+        if (this.query_start){
+          this.query_list.push("min="+this.query_start)
+        }
+        if (this.query_end){
+          this.query_list.push("max="+this.query_end)
+        }
+        if(this.query_list){
+          this.query_string = this.query_list.join("&")
+        }
         //ここで検索のfetchを行う
-        fetch("http://18.223.55.169:3000/search?", {
+        fetch("http://18.223.55.169:3000/search?"+this.query_string, {
             method: 'GET',
             headers: new Headers({
                 'Access-Control-Allow-Origin': '*'
@@ -64,11 +85,18 @@ var vm = new Vue({
             console.log(err)
             window.console.error(err.message);
           });
-
+          this.aaaa()
+          this.check_()
         console.log("pressed")
       },
       check_: function(){
         console.log(this.query_title, this.query_category, this.query_gender, this.query_start, this.query_end)
+      },
+      aaaa: function(){
+        for (var i=0;i<this.items.length;i++){
+          this.items[i]["url"] = "details.html?id="+this.items[i].id;
+          // console.log("list.html?"+this.genres_for_m[i].name)
+        }
       }
   }
 });

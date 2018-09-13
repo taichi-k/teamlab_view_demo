@@ -5,6 +5,10 @@ console.log("read");
 var vm = new Vue({
   el: "#app",
   data: {
+    category_id_list:[
+      "Cap","T-shirts","Shoes","Bag"
+    ],
+    this_category:"",
     query_params:{},
     query_string: null,
     tmp_query_string:[],
@@ -80,6 +84,10 @@ var vm = new Vue({
           this.tmp_key = this.tmp[i].split("=")[0];
           this.tmp_value = this.tmp[i].split("=")[1];
           this.query_params[this.tmp_key] = this.tmp_value;
+          if(this.tmp_key === "category_id"){
+            console.log("#")
+            this.this_category = this.category_id_list[Number(this.tmp_value) - 1]
+          }
         }
         console.log("Done")
       },

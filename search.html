@@ -67,13 +67,16 @@
         <div class="field">
           <div class="ui left icon input">
             <i class="yen sign icon"></i>
-            <input type="number" v-model="query_start" placeholder="以上">
+            <input type="number" min="0" v-model="query_start" placeholder="から">
           </div>
+        </div>
+        <div class=field>
+          <p>〜</p>
         </div>
         <div class="field">
           <div class="ui left icon input">
             <i class="yen sign icon"></i>
-            <input type="number" v-model="query_end" placeholder="以下">
+            <input type="number" min="1" v-model="query_end" placeholder="まで">
           </div>
         </div>
       </div>

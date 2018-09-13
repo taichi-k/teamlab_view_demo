@@ -49,11 +49,11 @@ var vm = new Vue({
     }
     //fetchでリストを呼ぶ。その時にURLも作成することで、解決可能？
     for (var i=0;i<this.genres_for_m.length;i++){
-      this.genres_for_m[i]["url"] = "list.html?category_id="+this.genres_for_m[i].id;
+      this.genres_for_m[i]["url"] = "list.html?gender=m&category_id="+this.genres_for_m[i].id;
       // console.log("list.html?"+this.genres_for_m[i].name)
     }
     for (var i=0;i<this.genres_for_f.length;i++){
-      this.genres_for_f[i]["url"] = "list.html?category_id="+this.genres_for_f[i].id;
+      this.genres_for_f[i]["url"] = "list.html?gender=f&category_id="+this.genres_for_f[i].id;
       // console.log("list.html?"+this.genres_for_m[i].name)
     }
     console.log(this.genres_for_m)
